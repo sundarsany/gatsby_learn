@@ -21,13 +21,16 @@ const BlogPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query {
-    allFile {
-      nodes {
-        name
+query MyQuery {
+  allMdx {
+    nodes {
+      frontmatter {
+        date(formatString: "MMMM D, YYYY")
+        title
       }
     }
   }
+}
 `
 
 export const Head = () => <Seo title="My Blog Posts" />
